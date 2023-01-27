@@ -1,0 +1,76 @@
+h1 {
+  text-align: center;
+  font-family: Karla, sans-serif;
+}
+
+.top {
+  text-align: center;
+  font-size: 0.9rem;
+  max-width: 600px;
+  color: gray;
+}
+
+.row-2 {
+  display: flex;
+}
+
+.heading {
+  text-align: left;
+  font-weight: 700;
+}
+
+.col-one-half {
+  display: flex;
+  flex-basis: wrap;
+}
+
+.container {
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+p {
+  font-family: Karla, sans-serif;
+}
+
+.col-1 {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.description {
+  font-weight: 400;
+  line-height: 1.5rem;
+  color: gray;
+}
+
+.btn {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+button {
+  padding: 5px 30px;
+  color: #d14c45;
+  border-color: #d14c45;
+  border-style: solid;
+  border-width: 0.1rem;
+  font-family: Karla, sans-serif;
+  background-color: white;
+}
+
+.image {
+  width: 100%;
+}
+
+.image img {
+  width: 100%;
+}
+
+.text {
+  padding-top: 1rem;
+}
