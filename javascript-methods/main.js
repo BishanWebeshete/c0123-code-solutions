@@ -39,7 +39,7 @@ var css = {
 };
 library.push(js);
 library.unshift(css);
-library.splice(1, 0);
+library.splice(1, 1);
 console.log('value of library:', library);
 
 var fullName = 'Bishan Webeshete';
