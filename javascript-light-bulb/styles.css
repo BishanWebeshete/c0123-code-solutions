@@ -1,0 +1,37 @@
+.row {
+  background-color: #fef9f1;
+  display: flex;
+  width: 1024px;
+  margin: 0 auto;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.bulb {
+  border-radius: 50%;
+  background-color: #f9ea84;
+  height: 30%;
+  width: 20%;
+  border: none;
+  box-shadow: 0 0 3rem #f9ea84;
+}
+
+.bulb.dark {
+  border-radius: 50%;
+  background-color: #252525;
+  height: 30%;
+  width: 20%;
+  border: none;
+  box-shadow: 0 0 3rem #252525;
+}
+
+.row.dark {
+  background-color: #111;
+  display: flex;
+  width: 1024px;
+  margin: 0 auto;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
