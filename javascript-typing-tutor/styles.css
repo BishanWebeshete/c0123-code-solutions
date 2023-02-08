@@ -1,0 +1,26 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 1024px;
+  margin: 0 auto;
+  height: 100vh;
+}
+
+.neutral {
+  color: black;
+}
+
+.correct {
+  color: #19cd1b;
+}
+
+.incorrect {
+  color: #f80605;
+  border-bottom: 3px solid #f80605;
+}
+
+.current {
+  color: black;
+  border-bottom: 3px solid black;
+}
