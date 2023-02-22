@@ -16,8 +16,6 @@ Bank.prototype.openAccount = function (holder, balance) {
   }
 };
 
-//  Use filter method from MDN
-
 Bank.prototype.getAccount = function (number) {
   for (let i = 0; i < this.accounts.length; i++) {
     if (this.accounts[i].number === number) {
@@ -26,12 +24,6 @@ Bank.prototype.getAccount = function (number) {
   }
   return null;
 };
-
-// if (this.accounts.filter(account => account.number === number).length === 0) {
-//   return null;
-// }
-// return this.accounts.filter(account => account.number === number)[0];
-// };
 
 Bank.prototype.getTotalAssets = function () {
   var total = 0;
