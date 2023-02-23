@@ -1,0 +1,14 @@
+.carousel-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.image-circles {
+  text-align: center;
+}
+
+.fa-chevron-left,
+.fa-chevron-right {
+  margin: auto 1rem;
+}
