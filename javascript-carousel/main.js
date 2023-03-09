@@ -31,9 +31,22 @@ var changeDot = function () {
     }
   }
 };
-$nextIcon.addEventListener('click', changeImage);
-$nextIcon.addEventListener('click', changeDot);
+
+$nextIcon.addEventListener('click', function () {
+  clearInterval(changeImageInterval);
+  changeImageInterval = setInterval(changeImage, 3000);
+  changeImage();
+});
+$nextIcon.addEventListener('click', function () {
+  clearInterval(changeDotInterval);
+  changeDotInterval = setInterval(changeDot, 3000);
+  changeDot();
+});
 $previousIcon.addEventListener('click', function () {
+  clearInterval(changeImageInterval);
+  clearInterval(changeDotInterval);
+  changeImageInterval = setInterval(changeImage, 3000);
+  changeDotInterval = setInterval(changeDot, 3000);
   if (currentIndex === 0) {
     currentIndex = 4;
   } else {
@@ -54,6 +67,10 @@ $previousIcon.addEventListener('click', function () {
 });
 
 $circlesContainer.addEventListener('click', function (event) {
+  clearInterval(changeImageInterval);
+  clearInterval(changeDotInterval);
+  changeImageInterval = setInterval(changeImage, 3000);
+  changeDotInterval = setInterval(changeDot, 3000);
   for (let i = 0; i < imageArray.length; i++) {
     if (Number(event.target.id) === i) {
       $img.setAttribute('src', imageArray[i]);
@@ -71,5 +88,5 @@ $circlesContainer.addEventListener('click', function (event) {
   }
 });
 
-setInterval(changeImage, 3000);
-setInterval(changeDot, 3000);
+var changeImageInterval = setInterval(changeImage, 3000);
+var changeDotInterval = setInterval(changeDot, 3000);
