@@ -1,10 +1,7 @@
 import takeAChance from './take-a-chance.js';
 
-const promise = takeAChance('Bishan');
-promise.then((value) => {
+const promise = takeAChance('Bishan').then((value) => {
   console.log(`${value}`);
-});
-
-promise.catch((error) => {
+}).catch((error) => {
   console.log(`${error}`);
 });
