@@ -1,5 +1,6 @@
 let count = 3;
-const countDown = function () {
+
+function countDown() {
   if (count > 0) {
     console.log(count);
     count--;
@@ -7,5 +8,5 @@ const countDown = function () {
     console.log('Blast off!');
     clearInterval(countId);
   }
-};
+}
 const countId = setInterval(countDown, 1000);

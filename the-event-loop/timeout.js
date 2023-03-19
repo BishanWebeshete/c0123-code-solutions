@@ -1,4 +1,4 @@
 console.log('Hello, just a moment...');
-setTimeout(function () {
+setTimeout(() => {
   console.log('Thanks for waiting!');
 }, 2000);
