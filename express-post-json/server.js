@@ -7,17 +7,17 @@ const grades = {
 
 };
 
+app.use(express.json());
+
 app.get('/api/grades', (req, res) => {
   res.json(Object.values(grades));
 });
-
-app.use(express.json());
 
 app.post('/api/grades', (req, res) => {
   grades[nextId] = req.body;
   grades[nextId].id = nextId;
   nextId++;
-  res.status(201).send(grades);
+  res.status(201).send(req.body);
 });
 
 app.listen(8080, () => {
