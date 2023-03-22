@@ -4,14 +4,16 @@ const app = express();
 
 app.use(express.json());
 
-const json = JSON.parse(await readFile('./data.json'));
+// const json = JSON.parse(await readFile('./data.json'));
 
-app.get('/api/notes', (req, res) => {
+app.get('/api/notes', async (req, res) => {
+  const json = JSON.parse(await readFile('./data.json'));
   res.json(Object.values(json.notes));
 });
 
-app.get('/api/notes/:id', (req, res) => {
+app.get('/api/notes/:id', async (req, res) => {
   try {
+    const json = JSON.parse(await readFile('./data.json'));
     if (json.notes[req.params.id]) {
       res.json((json.notes[req.params.id]));
     } else if (req.params.id < 0) {
@@ -31,14 +33,15 @@ app.get('/api/notes/:id', (req, res) => {
   }
 });
 
-app.post('/api/notes', (req, res) => {
+app.post('/api/notes', async (req, res) => {
   try {
+    const json = JSON.parse(await readFile('./data.json'));
     var keys = Object.keys(req.body);
     if (keys.includes('content')) {
       json.notes[json.nextId] = req.body;
       json.notes[json.nextId].id = json.nextId;
       json.nextId++;
-      writeFile('data.json', JSON.stringify(json, null, 2), 'utf8');
+      await writeFile('data.json', JSON.stringify(json, null, 2), 'utf8');
       res.status(201).send(req.body);
     } else if (!keys.includes('content')) {
       const x = {
@@ -52,11 +55,12 @@ app.post('/api/notes', (req, res) => {
   }
 });
 
-app.delete('/api/notes/:id', (req, res) => {
+app.delete('/api/notes/:id', async (req, res) => {
   try {
+    const json = JSON.parse(await readFile('./data.json'));
     if (json.notes[req.params.id]) {
       delete json.notes[req.params.id];
-      writeFile('data.json', JSON.stringify(json, null, 2), 'utf8');
+      await writeFile('data.json', JSON.stringify(json, null, 2), 'utf8');
       res.sendStatus(204);
     } else if (req.params.id < 0) {
       const x = {
@@ -75,13 +79,14 @@ app.delete('/api/notes/:id', (req, res) => {
   }
 });
 
-app.put('/api/notes/:id', (req, res) => {
+app.put('/api/notes/:id', async (req, res) => {
   try {
+    const json = JSON.parse(await readFile('./data.json'));
     var keys = Object.keys(req.body);
     if (json.notes[req.params.id]) {
       json.notes[req.params.id] = req.body;
       json.notes[req.params.id].id = req.params.id;
-      writeFile('data.json', JSON.stringify(json, null, 2), 'utf8');
+      await writeFile('data.json', JSON.stringify(json, null, 2), 'utf8');
       res.status(201).send(req.body);
     } else if (req.params.id < 0 || !keys.includes('content')) {
       const x = {
