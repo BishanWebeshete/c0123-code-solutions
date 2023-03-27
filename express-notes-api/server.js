@@ -43,7 +43,7 @@ app.post('/api/notes', async (req, res) => {
       json.nextId++;
       await writeFile('data.json', JSON.stringify(json, null, 2), 'utf8');
       res.status(201).send(req.body);
-    } else if (!keys.includes('content')) {
+    } else {
       const x = {
         error: 'content is a required field'
       };
@@ -87,7 +87,7 @@ app.put('/api/notes/:id', async (req, res) => {
       json.notes[req.params.id] = req.body;
       json.notes[req.params.id].id = req.params.id;
       await writeFile('data.json', JSON.stringify(json, null, 2), 'utf8');
-      res.status(201).send(req.body);
+      res.status(200).send(req.body);
     } else if (req.params.id < 0 || !keys.includes('content')) {
       const x = {
         error: 'id must be a positive integer'
