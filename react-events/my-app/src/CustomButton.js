@@ -3,6 +3,6 @@ export default function Button({text, color, onCustomClick}) {
   //   window.alert(`You Clicked ${text}`);
   // }
   return (
-    <button onClick={() => alert(onCustomClick)} style={{backgroundColor: color}}>{text}</button>
+    <button onClick={() => onCustomClick(text)} style={{backgroundColor: color}}>{text}</button>
   )
 }

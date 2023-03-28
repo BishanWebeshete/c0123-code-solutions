@@ -2,6 +2,10 @@ import logo from './logo.svg';
 import './App.css';
 import CustomButton from './CustomButton'
 
+function handleCustomClick(text) {
+  alert(text);
+}
+
 function App() {
   return (
     <div className="App">
@@ -10,9 +14,9 @@ function App() {
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
-        <CustomButton text='I' color='red' onCustomClick='I am red'/>
-        <CustomButton text='Know' color='green' onCustomClick='I am green'/>
-        <CustomButton text='React' color='lightblue' onCustomClick='I am lightblue'/>
+        <CustomButton text='Fancy' color='red' onCustomClick={handleCustomClick}/>
+        <CustomButton text='Know' color='green' onCustomClick={handleCustomClick}/>
+        <CustomButton text='React' color='lightblue' onCustomClick={handleCustomClick}/>
       </header>
     </div>
   );
