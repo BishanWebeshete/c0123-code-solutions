@@ -8,18 +8,16 @@ function handleSubmit(event) {
   console.log(formJson)
   }
   return (
-    <>
       <form onSubmit={handleSubmit}>
-        <label htmlFor="username">
-          Username: <input id="username" name="username" defaultValue="username"></input>
+        <label>
+          Username: <input id="username" name="username"></input>
         </label>
-        <label htmlFor="password">
-          Password: <input id="password" name="password" defaultValue="password"></input>
+        <label>
+          Password: <input id="password" name="password"></input>
         </label>
         <label>
           Submit: <input type="submit" value="submit"></input>
         </label>
       </form>
-    </>
   )
 }

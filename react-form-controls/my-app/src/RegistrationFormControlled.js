@@ -7,18 +7,16 @@ export default function RegistrationFormControlled() {
     console.log({userName, password});
   }
   return (
-    <>
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="username">
-          Username: <input onChange={e => setUserName(e.target.value)} id="username" name="username" defaultValue="username"></input>
-        </label>
-        <label htmlFor="password">
-          Password: <input onChange={e => setPassword(e.target.value)} id="password" name="password" defaultValue="password"></input>
-        </label>
-        <label>
-          Submit: <input type="submit" value="submit"></input>
-        </label>
-      </form>
-    </>
+    <form onSubmit={handleSubmit}>
+      <label>
+        Username: <input onChange={e => setUserName(e.target.value)} name="username" value={userName}></input>
+      </label>
+      <label>
+        Password: <input onChange={e => setPassword(e.target.value)} name="password" value={password}></input>
+      </label>
+      <label>
+        Submit: <input type="submit" value="submit"></input>
+      </label>
+     </form>
   )
 }
