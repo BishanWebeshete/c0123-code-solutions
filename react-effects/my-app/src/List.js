@@ -21,6 +21,7 @@ export default function List() {
       });
       promise.catch((value)=> {
         setError(value);
+        setIsLoading(false);
       });
     }
   }, [isLoading])
