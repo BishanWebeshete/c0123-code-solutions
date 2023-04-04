@@ -21,12 +21,13 @@ export default function Users() {
         }
         const jsonData = await response.json();
         setUsers(jsonData);
+        setIsLoading(false);
       } catch(error) {
         setError(error);
+        setIsLoading(false);
       }
      }
      logJSONData();
-     setIsLoading(false);
     }, []);
 
   if (isLoading) {

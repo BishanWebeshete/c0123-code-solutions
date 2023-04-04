@@ -21,6 +21,7 @@ export default function User({ userId, onCancel }) {
           setIsLoading(false);
         } catch (error) {
           setError(error);
+          setIsLoading(false);
         }
       }
       logJSONData();
