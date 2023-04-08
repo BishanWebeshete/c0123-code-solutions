@@ -18,7 +18,7 @@ export default function Todos() {
      * Handle errors correctly and set `error` to any error or error status code.
      * Set `isLoading` to false when all network activity is finished.
      */
-    async function logJSONTodos() {
+    async function readJSONTodos() {
       try {
         const response = await fetch (url('/api/todos'));
         if (!response.ok) {
@@ -32,7 +32,7 @@ export default function Todos() {
         setIsLoading(false);
       }
     }
-    logJSONTodos();
+    readJSONTodos();
   }, []);
 
   async function addTodo(newTodo) {
@@ -93,21 +93,13 @@ export default function Todos() {
      * And specify the "Content-Type" header as "application/json"
      */
     try {
-      let matchTodo = {};
-      const status = {};
-      for (let i = 0; i < todos.length; i++) {
-        // const currTodo = todos.length[i];
-        if (todos[i].todoId === todoId) {
-          matchTodo = todos[i];
-          status.isCompleted = !matchTodo.isCompleted;
-        }
-      }
+      const oldTodo = todos.find((todo) => todo.todoId === todoId);
       const response = await fetch(url(`/api/todos/${todoId}`), {
         method: 'PATCH',
         headers: {
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify(status)
+        body: JSON.stringify({isCompleted : !oldTodo.isCompleted})
       })
       if(!response.ok) {
         throw new Error ('Network response not OK', response.status);
@@ -124,6 +116,7 @@ export default function Todos() {
       setError(error);
     }
   }
+
   if (isLoading) {
     return <div>Loading...</div>;
   }
