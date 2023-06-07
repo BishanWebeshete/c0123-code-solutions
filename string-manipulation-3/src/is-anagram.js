@@ -68,4 +68,5 @@ function isAnagram(firstString, secondString) {
       return false;
     }
   }
+  return true;
 }
