@@ -20,12 +20,36 @@
 //   return boolean;
 // }
 
+// function isAnagram(firstString, secondString) {
+//   var firstArray = firstString.split('').sort().join();
+//   var secondArray = secondString.split('').sort().join();
+//   if (firstArray === secondArray) {
+//     return true;
+//   } else {
+//     return false;
+//   }
+// }
+
 function isAnagram(firstString, secondString) {
-  var firstArray = firstString.split('').sort().join();
-  var secondArray = secondString.split('').sort().join();
-  if (firstArray === secondArray) {
-    return true;
-  } else {
+  var obj1 = {};
+  var obj2 = {};
+  var string1 = firstString.replaceAll(' ', '');
+  var string2 = secondString.replaceAll(' ', '');
+
+  if (string1.length !== string2.length) {
     return false;
+  }
+
+  for (var i = 0; i < string1.length; i++) {
+    if (string1[i] in obj1) {
+      obj1[string1[i]] += 1;
+    } else {
+      obj1[string1[i]] = 1;
+    }
+    if (string2[i] in obj2) {
+      obj2[string2[i]] += 1;
+    } else {
+      obj2[string2[i]] = 1;
+    }
   }
 }
