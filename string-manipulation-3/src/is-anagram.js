@@ -52,4 +52,20 @@ function isAnagram(firstString, secondString) {
       obj2[string2[i]] = 1;
     }
   }
+  for (var key1 in obj1) {
+    var count = 0;
+    for (var key2 in obj2) {
+      if (key1 === key2) {
+        if (obj1[key1] !== obj2[key2]) {
+          return false;
+        } else {
+          break;
+        }
+      }
+      count++;
+    }
+    if (count === Object.keys(obj1).length) {
+      return false;
+    }
+  }
 }
