@@ -11,10 +11,10 @@ export default function Counter() {
     setCounter((prev) => prev + 1);
   }, [getData]);
 
-  // function getData() {
+  return <div>Fetching {counter} times</div>;
+}
+
+ // function getData() {
   //   // fetch data
   //   return { foo: 'bar' };
   // }
-
-  return <div>Fetching {counter} times</div>;
-}
